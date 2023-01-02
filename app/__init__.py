@@ -22,8 +22,10 @@ def create_app(env = 'Development'):
     db.init_app(app)
 
     import spacy
+    from spacy_pythainlp.core import *
     global spacy_tokenizer
-    spacy_tokenizer = spacy.load(app.config["SPACY_LANG_MODEL"])
+    spacy_tokenizer = spacy.blank("th")
+    spacy_tokenizer.add_pipe("pythainlp")
 
     from app.agents.controllers import bots
     from app.nlu.controllers import nlu
