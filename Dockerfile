@@ -1,7 +1,7 @@
 FROM python:3.9.6-slim
 
 # Install common libraries
-RUN apt-get update -qq --allow-unauthenticated \
+RUN apt-get update -qq --allow-insecure-repositories \
  && apt-get install -y --no-install-recommends --allow-unauthenticated build-essential && apt-get autoremove -y
 
 WORKDIR /usr/src/app
